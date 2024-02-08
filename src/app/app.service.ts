@@ -1,8 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { LoggerService } from 'src/logger/logger.service';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
-  }
+    constructor(private readonly logService: LoggerService) { }
+
+    getHello(): string {
+        this.logService.log('Service logs', { key: 'value', nested: { array: [1, 2, 3] } })
+        return 'Hello World!';
+    }
 }
