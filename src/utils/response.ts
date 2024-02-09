@@ -1,15 +1,16 @@
-export class ResponseUtil {
-    constructor(
-        public success: boolean,
-        public data: any = null,
-        public message: string = '',
-    ) { }
+export function successResponse(message: string = '', data: any = []) {
+    return {
+        success: true,
+        data,
+        message,
+    };
+}
 
-    static success(message: string = '', data: any = []) {
-        return new ResponseUtil(true, data, message);
-    }
-
-    static error(message: string = '', error?: any) {
-        return new ResponseUtil(false, null, message);
-    }
+export function errorResponse(message: string = '', error?: any) {
+    return {
+        success: false,
+        data: null,
+        message,
+        error,
+    };
 }
