@@ -5,7 +5,7 @@ import { LoggerService } from 'src/logger/logger.service';
 export class AppService {
     constructor(private readonly logService: LoggerService) { }
 
-    getHello(): string {
+    async getHello(): Promise<string> {
         this.logService.log('Service logs', { key: 'value', nested: { array: [1, 2, 3] } })
         return 'Hello World!';
     }
