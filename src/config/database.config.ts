@@ -9,7 +9,7 @@ export const databaseConfig: TypeOrmModuleOptions = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     entities: [],
-    synchronize: true,
+    synchronize: false,
     logging: true,
     migrations: ["dist/database/migrations/*{.ts,.js}"],
     // retryAttempts: 1,
